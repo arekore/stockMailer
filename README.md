@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Herokuでメール送信
+https://rails-ambassador.herokuapp.com/tips/HerokuSendmailAddon
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 東証株価を取得する方法
+https://qiita.com/yasutaka_ono/items/2e52b6a4ef0666282896
