@@ -28,9 +28,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# 株価取得API用Gem
-gem 'quandl'
-
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
