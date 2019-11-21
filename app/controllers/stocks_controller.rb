@@ -1,5 +1,7 @@
 class StocksController < ApplicationController
 
+  before_action :require_email
+
   def index
     @stockList = Stock.all
   end
@@ -42,5 +44,21 @@ class StocksController < ApplicationController
 
     def stock_params
       params.require(:stock).permit(:name, :code, :sendFlag)
+    end
+
+    def require_email
+      unless email_exist?
+        flash[:error] = "送信用メールアドレスを登録してください"
+        redirect_to 
+      end
+    end
+
+    def email_exist?
+      data = User.where(sendFlag: 1)
+      unless data.empty?
+        return true
+      else
+        return false
+      end
     end
 end

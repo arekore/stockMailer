@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= @data["date"].to_date.strftime("%m月%d日") %>の株価一覧</h1>
+    <table border="1">
+        <tr>
+            <th>会社名</th>
+            <th>始値</th>
+            <th>高値</th>
+            <th>安値</th>
+            <th>終値</th>
+        </tr>
+        <% @stocks.each do |itm| %>
+            <tr>
+                <td><%= "#{itm.name}(#{itm.code})" %></td>
+                <td><%= @data[itm.code][0] %></td>
+                <td><%= @data[itm.code][1] %></td>
+                <td><%= @data[itm.code][2] %></td>
+                <td><%= @data[itm.code][3] %></td>
+            </tr>
+        <% end %>
+    </table>
+    <%= link_to "管理用サイトに行く", root_url %>
+  </body>
+</html>
