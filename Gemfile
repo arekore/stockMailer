@@ -28,6 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails', '4.3.1'
+gem 'nokogiri'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

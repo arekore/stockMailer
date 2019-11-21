@@ -1,0 +1,28 @@
+<h1>List</h1>
+
+<table class="table">
+    <tr>
+        <th>会社名</th>
+        <th>コード</th>
+        <th>送信フラグ</th>
+    </tr>
+    <% unless @stockList.nil? %>
+    <% @stockList.each do |itm| %>
+        <tr>
+            <td><%= itm.name %></td>
+            <td><%= itm.code %></td>
+            <td><%= itm.sendFlag %></td>
+            <td><%= link_to "編集", "/stocks/#{itm.id}/edit", title: '編集' %></td>
+            <td><%= link_to "削除", "/stocks/#{itm.id}", method: :delete, class: "btn btn-danger",
+                    data: {
+                        confirm:"#{itm.name}(#{itm.code})を削除しますか？",
+                        verify: "#{itm.code}",
+                        verify_text: "コード「#{itm.code}」を入力",
+                        commit: "Delete"
+                    }, title: '削除'
+                    %></td>
+        </tr>
+    <% end %>
+    <% end %>
+</table>
+<%= link_to "新規登録", "/stocks/new" %>
