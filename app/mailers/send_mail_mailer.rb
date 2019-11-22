@@ -1,10 +1,10 @@
 class SendMailMailer < ApplicationMailer
     default from: 'Stock_Alerm@arka.siile'
 
-    def send(address)
+    def send_stock_info(address)
         @stocks = Stock.where(sendFlag: 1)
         @data = get_data(@stocks)
-        mail(to: address, subject: "【定期】#{@data["date"].to_date.strftime("%m月%d日")} 株価")
+        mail(to: address, subject: "【定期】#{@data["date"]} 株価")
     end
 
     private

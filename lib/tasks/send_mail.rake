@@ -5,14 +5,9 @@ namespace :send_mail do
         users = User.where(sendFlag: 1)
 
         users.each do |user|
-            SendMailMailer.send(user.mail).deliver
-            update_lastSend(user.id)
+            SendMailMailer.send_stock_info(user.mail).deliver
+            user = User.find(id)
+            user.update_attributes(lastSend: Time.now)
         end
-
-        private
-            def update_lastSend(id)
-                user = User.find(id)
-                user.update_attributes(lastSend: Time.now)
-            end
     end
 end
