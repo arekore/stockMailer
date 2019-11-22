@@ -6,7 +6,7 @@ namespace :send_mail do
 
         users.each do |user|
             SendMailMailer.send_stock_info(user.mail).deliver
-            user = User.find(id)
+            user = User.find(user.id)
             user.update_attributes(lastSend: Time.now)
         end
     end
