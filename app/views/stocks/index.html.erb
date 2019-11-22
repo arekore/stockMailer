@@ -11,7 +11,7 @@
         <tr>
             <td><%= itm.name %></td>
             <td><%= itm.code %></td>
-            <td><%= itm.sendFlag %></td>
+            <td><%= itm.sendFlag == 1 ? "○" : "×" %></td>
             <td><%= link_to "編集", "/stocks/#{itm.id}/edit", title: '編集' %></td>
             <td><%= link_to "削除", "/stocks/#{itm.id}", method: :delete, class: "btn btn-danger",
                     data: {
@@ -25,4 +25,24 @@
     <% end %>
     <% end %>
 </table>
-<%= link_to "新規登録", "/stocks/new" %>
+<%= link_to "銘柄登録", "/stocks/new" %>
+<hr/>
+<table class="table">
+    <% @mailList.each do |obj| %>
+        <tr>
+            <td><%= obj.mail %></td>
+            <td><%= obj.lastSend.nil? ? '未送信' : obj.lastSend.strftime("%m月%d日 %-H時%-M分%-S秒") %></td>
+            <td><%= obj.sendFlag == 1 ? "○" : "×" %></td>
+            <td><%= link_to "編集", "/users/#{obj.id}/edit", title: '編集' %></td>
+            <td><%= link_to "削除", "/users/#{obj.id}", method: :delete, class: "btn btn-danger",
+                    data: {
+                        confirm:"「#{obj.mail}」を削除しますか？",
+                        verify: "#{obj.mail}",
+                        verify_text: "削除するアドレスを入力",
+                        commit: "Delete"
+                    }, title: '削除'
+                    %></td>
+        </tr>
+    <% end %>
+</table>
+<%= link_to "アドレス登録", "/users/new" %>

@@ -3,6 +3,7 @@ class StocksController < ApplicationController
   before_action :require_email
 
   def index
+    @mailList = User.all
     @stockList = Stock.all
   end
 
@@ -49,12 +50,12 @@ class StocksController < ApplicationController
     def require_email
       unless email_exist?
         flash[:error] = "送信用メールアドレスを登録してください"
-        redirect_to 
+        redirect_to '/users/new'
       end
     end
 
     def email_exist?
-      data = User.where(sendFlag: 1)
+      data = User.all
       unless data.empty?
         return true
       else

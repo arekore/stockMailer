@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
     def email_params
-      params.require(:stock).permit(:email, :sendFlag)
+      params.require(:user).permit(:mail, :sendFlag)
     end
 
 end
