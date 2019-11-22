@@ -28,6 +28,7 @@
 <%= link_to "銘柄登録", "/stocks/new" %>
 <hr/>
 <table class="table">
+    <% unless @mailList.nil? %>
     <% @mailList.each do |obj| %>
         <tr>
             <td><%= obj.mail %></td>
@@ -43,6 +44,7 @@
                     }, title: '削除'
                     %></td>
         </tr>
+    <% end %>
     <% end %>
 </table>
 <%= link_to "アドレス登録", "/users/new" %>
