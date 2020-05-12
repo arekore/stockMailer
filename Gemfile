@@ -32,6 +32,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails', '4.3.1'
 gem 'nokogiri'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
